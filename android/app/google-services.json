@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "263745091795",
+    "project_id": "hacathone-shopping-app",
+    "storage_bucket": "hacathone-shopping-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263745091795:android:560ef76129892107b67c26",
+        "android_client_info": {
+          "package_name": "com.hacathone.eshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "263745091795-b4fa7fvkfcogu8f9110fdpdid2dbdlop.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQj3FnTojD7jVVHfPAgWMwXHayMsDcLXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "263745091795-b4fa7fvkfcogu8f9110fdpdid2dbdlop.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
