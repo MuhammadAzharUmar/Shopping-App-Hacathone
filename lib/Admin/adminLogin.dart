@@ -3,6 +3,7 @@ import 'package:e_shop/Admin/uploadItems.dart';
 import 'package:e_shop/Authentication/authenication.dart';
 import 'package:e_shop/Widgets/customTextField.dart';
 import 'package:e_shop/DialogBox/errorDialog.dart';
+// ignore: unused_import
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -46,6 +47,7 @@ class _AdminSignInScreenState extends State<AdminSignInScreen> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width,
+        // ignore: unused_local_variable
         screenHight = MediaQuery.of(context).size.height;
     return SingleChildScrollView(
       child: Container(

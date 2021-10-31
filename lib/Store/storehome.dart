@@ -129,6 +129,11 @@ class _StoreHomeState extends State<StoreHome> {
 Widget sourceInfo(ItemModel model, BuildContext context,
     {Color background, removeCartFunction}) {
   return InkWell(
+    onTap: () {
+      Route route = MaterialPageRoute(
+          builder: (BuildContext) => ProductPage(itemModel: model));
+      Navigator.pushReplacement(context, route);
+    },
     splashColor: Colors.pink,
     child: Padding(
       padding: EdgeInsets.all(6),
@@ -268,7 +273,31 @@ Widget sourceInfo(ItemModel model, BuildContext context,
                       )
                     ],
                   ),
-                  Flexible(child: Container())
+                  Flexible(child: Container()),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: removeCartFunction == null
+                        ? IconButton(
+                            onPressed: () {
+                              checkItemInCart(model.shortInfo, context);
+                            },
+                            icon: Icon(
+                              Icons.add_shopping_cart,
+                              color: Colors.pinkAccent,
+                            ),
+                          )
+                        : IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.delete,
+                              color: Colors.pinkAccent,
+                            ),
+                          ),
+                  ),
+                  Divider(
+                    height: 5,
+                    color: Colors.black,
+                  )
                 ],
               ),
             )
@@ -283,4 +312,27 @@ Widget card({Color primaryColor = Colors.redAccent, String imgPath}) {
   return Container();
 }
 
-void checkItemInCart(String productID, BuildContext context) {}
+void checkItemInCart(String shortInfoID, BuildContext context) {
+  EcommerceApp.sharedPreferences
+          .getStringList(EcommerceApp.userCartList)
+          .contains(shortInfoID)
+      ? Fluttertoast.showToast(msg: "Item Is Already In Cart")
+      : addItemToCart(shortInfoID, context);
+}
+
+addItemToCart(String shortInfoID, BuildContext context) {
+  List tempCartList =
+      EcommerceApp.sharedPreferences.getStringList(EcommerceApp.userCartList);
+  tempCartList.add(shortInfoID);
+  EcommerceApp.firestore
+      .collection(EcommerceApp.collectionUser)
+      .doc(EcommerceApp.sharedPreferences.getString(EcommerceApp.userUID))
+      .update({
+    EcommerceApp.userCartList: tempCartList,
+  }).then((v) {
+    Fluttertoast.showToast(msg: "Item Add To The Cart Successfully");
+    EcommerceApp.sharedPreferences
+        .setStringList(EcommerceApp.userCartList, tempCartList);
+    Provider.of<CartItemCounter>(context, listen: false).displayResult();
+  });
+}

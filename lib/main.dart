@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
           return MultiProvider(
             providers: [
               ChangeNotifierProvider(create: (context) => CartItemCounter()),
-              ChangeNotifierProvider(create: (context) => CartItemCounter()),
+              ChangeNotifierProvider(create: (context) => ItemQuantity()),
               ChangeNotifierProvider(create: (context) => AddressChanger()),
               ChangeNotifierProvider(create: (context) => TotalAmount()),
             ],
