@@ -25,7 +25,8 @@ class ItemModel {
     thumbnailUrl = json['thumbnailUrl'];
     longDescription = json['longDescription'];
     status = json['status'];
-    price = int.parse(json['price']);
+
+    price = json['price'];
   }
 
   Map<String, dynamic> toJson() {
