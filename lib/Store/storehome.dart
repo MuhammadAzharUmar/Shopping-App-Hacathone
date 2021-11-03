@@ -250,14 +250,14 @@ Widget sourceInfo(ItemModel model, BuildContext context,
                             child: Row(
                               children: [
                                 Text(
-                                  "Original Price ",
+                                  "Discounted Price ",
                                   style: TextStyle(
-                                      fontSize: 14, color: Colors.black),
+                                      fontSize: 12, color: Colors.black),
                                 ),
                                 Text(
                                   "₨./- ",
                                   style: TextStyle(
-                                      color: Colors.red, fontSize: 16),
+                                      color: Colors.red, fontSize: 14),
                                 ),
                                 Text(
                                   (model.price).toString(),

@@ -25,7 +25,6 @@ class ItemModel {
     thumbnailUrl = json['thumbnailUrl'];
     longDescription = json['longDescription'];
     status = json['status'];
-
     price = json['price'];
   }
 
