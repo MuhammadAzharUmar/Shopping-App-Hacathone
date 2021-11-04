@@ -250,7 +250,7 @@ Widget sourceInfo(ItemModel model, BuildContext context,
                             child: Row(
                               children: [
                                 Text(
-                                  "Discounted Price ",
+                                  "New Price ",
                                   style: TextStyle(
                                       fontSize: 12, color: Colors.black),
                                 ),
@@ -285,9 +285,11 @@ Widget sourceInfo(ItemModel model, BuildContext context,
                             ),
                           )
                         : IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              removeCartFunction();
+                            },
                             icon: Icon(
-                              Icons.delete,
+                              Icons.remove_shopping_cart,
                               color: Colors.pinkAccent,
                             ),
                           ),
